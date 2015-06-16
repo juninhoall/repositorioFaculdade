@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Listagem de Estabelecimentos</title>
+    </h:head>
+    <h:body>
+        <p:dataTable value="#{estabelecimentoBean.estabelecimentos}" var="estabelecimento" >
+            <p:column>
+                <f:facet name="header">Nome</f:facet>
+                    #{estabelecimento.nome}
+            </p:column>
+            <p:column>
+                <f:facet name="header">Responsavel</f:facet>
+                    #{estabelecimento.responsavel}
+            </p:column>
+            <p:column>
+                <f:facet name="header">Contato</f:facet>
+                    #{estabelecimento.contato}
+            </p:column>
+            <p:column>
+                <f:facet name="header">Endereço</f:facet>
+                    #{estabelecimento.endereco}
+            </p:column>
+            <p:column>
+                <f:facet name="header">CNPJ</f:facet>
+                    #{estabelecimento.cnpj}
+            </p:column>
+        </p:dataTable>
+    </h:body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Listagem de Responsavel</title>
+    </h:head>
+    <h:body>
+        <p:dataTable value="#{responsavelBean.responsaveis}" var="responsavel" >
+            <p:column>
+                <f:facet name="header">Responsavel</f:facet>
+                    #{responsavel.nome}
+            </p:column>
+            <p:column>
+                <f:facet name="header">Login</f:facet>
+                    #{responsavel.login}
+            </p:column>
+             <p:column>
+                <f:facet name="header">Senha</f:facet>
+                    #{responsavel.senha}
+            </p:column>
+        </p:dataTable>
+    </h:body>
+</html>
