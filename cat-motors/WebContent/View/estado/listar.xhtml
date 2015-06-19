@@ -18,6 +18,17 @@
                 <f:facet name="header">Sigla</f:facet>
                     #{estado.sigla}
             </p:column>
+            <p:column>
+                <f:facet name="header">Ações</f:facet>
+                <h:form>
+                    <h:commandLink action="#{estadoBean.alterar()}">
+                        Editar
+                    </h:commandLink>
+                    <h:commandLink action="#{estadoBean.deletar(estado)}">
+                        Excluir
+                    </h:commandLink>
+                </h:form>
+            </p:column>
         </p:dataTable>
     </h:body>
 </html>

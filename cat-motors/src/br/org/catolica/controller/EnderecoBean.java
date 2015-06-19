@@ -5,7 +5,6 @@
  */
 package br.org.catolica.controller;
 
-import br.org.catolica.entity.Cidade;
 import br.org.catolica.entity.Endereco;
 import br.org.catolica.jpa.JPAUtil;
 import java.util.List;
@@ -27,6 +26,13 @@ public class EnderecoBean {
     public void salvar() {
         EntityManager em = JPAUtil.getEntityManager();
         em.persist(endereco);
+    }
+
+    public String deletar(Endereco endereco) {
+        EntityManager em = JPAUtil.getEntityManager();
+        endereco = em.merge(endereco);
+        em.remove(endereco);
+        return "listar?faces-redirect=true";
     }
 
     public void deletar() {

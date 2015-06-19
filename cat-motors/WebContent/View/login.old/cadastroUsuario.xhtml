@@ -12,7 +12,7 @@
         <h:form>
             <!-- MODELO -->
             <p:panelGrid columns="2">
-                Cidade<p:inputText value="#{cidadeBean.cidade.nome}" required="true"/>
+                Cidade<p:inputText value="#{}" required="true"/>
                 <!--Start Combo box Estado-->
                 Estado: <h:selectOneMenu id="selectEstado" label="estado" value="#{estado}" required="true" converter="entityConverter">
                     <f:selectItem itemLabel="-- Selecione --" noSelectionOption="true" />
@@ -25,4 +25,3 @@
         </h:form> 
     </h:body>
 </html>
-

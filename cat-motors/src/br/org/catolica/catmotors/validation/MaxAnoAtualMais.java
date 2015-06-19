@@ -20,7 +20,7 @@ import javax.validation.Payload;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface MaxAnoAtualMais {
 	
-	String message() default "O valor máximo para esse campo é {0}";
+	String message() default "O valor maximo para esse campo Ã© {0}";
 	int value() default 0;
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default {};

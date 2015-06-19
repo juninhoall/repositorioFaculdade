@@ -33,6 +33,17 @@ public class CidadeBean {
         em.remove(cidade);
     }
 
+    public String deletar(Cidade cidade) {
+        EntityManager em = JPAUtil.getEntityManager();
+        cidade = em.merge(cidade);
+        em.remove(cidade);
+        return "listar?faces-redirect=true";
+    }
+
+    public void alterar(Cidade cidade) {
+        this.cidade = cidade;
+    }
+
     public void alterar() {
         EntityManager em = JPAUtil.getEntityManager();
         em.merge(cidade);
@@ -51,6 +62,10 @@ public class CidadeBean {
 
     public Cidade getCidade() {
         return cidade;
+    }
+
+    public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
     }
 
 }

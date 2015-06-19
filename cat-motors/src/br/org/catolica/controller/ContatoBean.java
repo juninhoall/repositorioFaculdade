@@ -5,6 +5,7 @@
  */
 package br.org.catolica.controller;
 
+import br.org.catolica.entity.Cidade;
 import br.org.catolica.entity.Contato;
 import br.org.catolica.jpa.JPAUtil;
 import java.util.List;
@@ -23,9 +24,17 @@ public class ContatoBean {
 
     Contato contato = new Contato();
 
-    public void salvar() {
+    public String salvar() {
         EntityManager em = JPAUtil.getEntityManager();
         em.persist(contato);
+        return "listar?faces-redirect=true";
+    }
+
+    public String deletar(Contato contato) {
+        EntityManager em = JPAUtil.getEntityManager();
+        contato = em.merge(contato);
+        em.remove(contato);
+         return "listar?faces-redirect=true";
     }
 
     public void excluir() {

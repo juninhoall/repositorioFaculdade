@@ -6,6 +6,7 @@ import br.org.catolica.entity.Endereco;
 import br.org.catolica.entity.Estabelecimento;
 import br.org.catolica.entity.Estado;
 import br.org.catolica.entity.Responsavel;
+import br.org.catolica.entity.UsuarioOld;
 
 import javax.persistence.EntityManager;
 
@@ -50,7 +51,7 @@ public class JpaTest extends JpaTesteBase {
 
         EntityManager em = JPAUtil.getEntityManager();
         em.getTransaction().begin();
-        
+
         Contato contato = new Contato();
         contato.setEmail("rua@rua.com");
         contato.setFacebook("juninhoall");
@@ -64,12 +65,24 @@ public class JpaTest extends JpaTesteBase {
         estabelecimento.setContato(contato);
         estabelecimento.setEndereco(em.find(Endereco.class, 1L));
         estabelecimento.setResponsavel(resp);
-        
+
         em.persist(estabelecimento);
 
         em.getTransaction().commit();
 
         System.out.println("CRIADO");
+    }
+
+    public static UsuarioOld criaUsuario(UsuarioOld usuario) {
+
+        usuario.setNomeUsuario("Santa Catarina");
+        usuario.setSenha("SC");
+
+        EntityManager em = JPAUtil.getEntityManager();
+        em.getTransaction().begin();
+        System.out.println("CRIADO usuario");
+        return usuario;
+
     }
 
 }

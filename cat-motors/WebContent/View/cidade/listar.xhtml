@@ -9,14 +9,25 @@
         <title>Listagem de Cidade</title>
     </h:head>
     <h:body>
-        <p:dataTable value="#{estadoBean.estados}" var="estado" >
+        <p:dataTable value="#{cidadeBean.cidades}" var="cidade" >
             <p:column>
                 <f:facet name="header">Cidade</f:facet>
                     #{cidade.nome}
             </p:column>
             <p:column>
-                <f:facet name="header">Cidade</f:facet>
-                    #{cidade.estado}
+                <f:facet name="header">Estado</f:facet>
+                    #{cidade.estado.sigla}
+            </p:column>
+            <p:column>
+                <f:facet name="header">Ações</f:facet>
+                <h:form>
+                    <h:commandLink action="#{cidadeBean.alterar(cidade)}">
+                        Editar
+                    </h:commandLink>
+                    <h:commandLink action="#{cidadeBean.deletar(cidade)}">
+                        Excluir
+                    </h:commandLink>
+                </h:form>
             </p:column>
         </p:dataTable>
     </h:body>

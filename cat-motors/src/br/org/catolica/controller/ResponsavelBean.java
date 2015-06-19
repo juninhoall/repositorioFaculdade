@@ -29,6 +29,13 @@ public class ResponsavelBean {
         em.persist(responsavel);
     }
 
+    public String deletar(Responsavel responsavel) {
+        EntityManager em = JPAUtil.getEntityManager();
+        responsavel = em.merge(responsavel);
+        em.remove(responsavel);
+        return "listar?faces-redirect=true";
+    }
+
     public void deletar() {
         EntityManager em = JPAUtil.getEntityManager();
         em.remove(responsavel);
