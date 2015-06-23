@@ -1,0 +1,53 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Estabelecimentos</title>
+</h:head>
+<h:body>
+	<h:form id="formLogin">
+		<h:messages />
+		<h:panelGrid columns="2">	
+	    	
+			Selecione seu estado:  
+			<h:selectOneMenu label="estado" value="#{estabelecimentoBean.estado}"
+				required="false" converter="entityConverter">
+				<f:selectItem itemLabel="-- Selecione --" noSelectionOption="true" />
+				<f:selectItems value="#{estadoBean.estados}" var="estado"
+					itemValue="#{estado}" itemLabel="#{estado.sigla}" />
+				<f:ajax render="selectCidade" />
+			</h:selectOneMenu>
+            Selecione sua cidade
+            <h:selectOneMenu id="selectCidade" label="cidade"
+				value="#{estabelecimentoBean.cidade}" required="false"
+				converter="entityConverter">
+				<f:selectItem itemLabel="-- Selecione --" noSelectionOption="true" />
+				<f:selectItems value="#{estabelecimentoBean.estado.cidades}"
+					var="cidade" itemValue="#{cidade}" itemLabel="#{cidade.nome}" />
+
+			</h:selectOneMenu>
+
+		</h:panelGrid>
+
+		<h:commandButton action="#{estabelecimentoBean.getEstabelecimentosUF}"
+			value="OK" />
+
+
+		<p:dataTable value="#{estabelecimentoBean.est}" var="estabelecimento">
+			<p:column>
+				<f:facet name="header">Nome</f:facet>
+                    #{estabelecimento.nome}
+            </p:column>
+			<p:column>
+				<f:facet name="header">Contato</f:facet>
+                    #{estabelecimento.contato}
+            </p:column>
+		</p:dataTable>
+
+	</h:form>
+</h:body>
+</html>

@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Cadastrar</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <!-- MODELO -->
+            <p:panelGrid columns="2">
+                E-mail<p:inputText value="#{contatoBean.contato.email}" required="true"/>
+                Facebook<p:inputText value="#{contatoBean.contato.facebook}" required="true"/>
+                telefone<p:inputMask  mask="(99) 999-9999" value="#{contatoBean.contato.telefone}" required="true"/>
+            </p:panelGrid>
+            <br/>
+            <h:commandButton value="Salvar" action="#{contatoBean.salvar()}" />
+        </h:form> 
+    </h:body>
+</html>
+

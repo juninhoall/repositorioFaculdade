@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+	<h:form id="formLogin">
+		<h:messages />
+		<h:panelGrid columns="3">	
+	    	
+			Login: <h:inputText value="#{loginBean.login.login}" id="login"/>
+			Senha: <h:inputText value="#{loginBean.login.password}" id="password"/>
+			
+
+			<h:commandButton value="Validar" action="#{loginBean.validaLogin()}" />
+			
+		</h:panelGrid>
+
+	</h:form>
+</h:body>
+</html>
