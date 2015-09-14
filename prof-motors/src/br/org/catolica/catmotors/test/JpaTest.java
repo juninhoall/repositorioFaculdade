@@ -37,20 +37,22 @@ public class JpaTest extends JpaTesteBase {
         em.persist(cidade);
         em.getTransaction().commit();
 
-        Endereco endereco = new Endereco();
-
-        endereco.setBairro("rua augusta");
-        endereco.setCidade(em.find(Cidade.class, 8L));
-        endereco.setComplemento("prox a igreja");
-        endereco.setNumero(22);
-        endereco.setRua("124E");
-        em.persist(endereco);
+//        Endereco endereco = new Endereco();
+//
+//        endereco.setBairro("rua augusta");
+//        endereco.setCidade(em.find(Cidade.class, 8L));
+//        endereco.setComplemento("prox a igreja");
+//        endereco.setNumero(22);
+//        endereco.setRua("124E");
+//        em.persist(endereco);
 
         return estado;
 
     }
 
     public static void main(String[] args) {
+    	Estado estado = new Estado();
+    	//criaEstado(estado);
 
 //        EntityManager em = JPAUtil.getEntityManager();
 //        em.getTransaction().begin();
@@ -74,22 +76,22 @@ public class JpaTest extends JpaTesteBase {
 //        em.getTransaction().commit();
 //
 //        System.out.println("CRIADO");
-    	
-    	Cidade cidade=  new Cidade();
-    	cidade.setNome("Guaramirim");
-    	EntityManager em = JPAUtil.getEntityManager();
-    	String jpql = "select c from Estabelecimento c where c.endereco.cidade.nome= :nomeCidade ";
-    	
-		Query query = em.createQuery(jpql, Estabelecimento.class);
-		query.setParameter("nomeCidade", cidade.getNome());		
-						
-		List<Estabelecimento> autos = query.getResultList();
-		
-		for (Estabelecimento estabelecomento : autos) {
-			
-			System.out.println(estabelecomento.getNome());
-		}
-		
+//    	
+//    	Cidade cidade=  new Cidade();
+//    	cidade.setNome("Guaramirim");
+//    	EntityManager em = JPAUtil.getEntityManager();
+//    	String jpql = "select c from Estabelecimento c where c.endereco.cidade.nome= :nomeCidade ";
+//    	
+//		Query query = em.createQuery(jpql, Estabelecimento.class);
+//		query.setParameter("nomeCidade", cidade.getNome());		
+//						
+//		List<Estabelecimento> autos = query.getResultList();
+//		
+//		for (Estabelecimento estabelecomento : autos) {
+//			
+//			System.out.println(estabelecomento.getNome());
+//		}
+//		
     }
 
     public static UsuarioOld criaUsuario(UsuarioOld usuario) {

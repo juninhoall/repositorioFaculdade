@@ -19,6 +19,7 @@ import br.org.catolica.entity.Contato;
 import br.org.catolica.entity.Endereco;
 import br.org.catolica.entity.Estabelecimento;
 import br.org.catolica.entity.Estado;
+import br.org.catolica.entity.Login;
 import br.org.catolica.entity.Responsavel;
 import br.org.catolica.jpa.JPAUtil;
 
@@ -36,6 +37,7 @@ public class EstabelecimentoBean {
 	Contato contato;
 	Responsavel responsavel;
 	Estado estado;
+	Login login;
 	
 	List<Estabelecimento> est = new ArrayList<Estabelecimento>();
 
@@ -48,7 +50,9 @@ public class EstabelecimentoBean {
 		this.estado = new Estado();
 		this.contato = new Contato();
 		this.responsavel = new Responsavel();
+		this.login = new Login();
 		
+		this.responsavel.setLogin(login);
 		this.estabelecimento.setContato(contato);
 		this.cidade.setEstado(estado);
 		this.endereco.setCidade(cidade);	
@@ -152,6 +156,15 @@ public class EstabelecimentoBean {
 		this.responsavel = responsavel;
 	}
 
+	public Login getLogin() {
+		return login;
+	}
+
+	public void setLogin(Login login) {
+		this.login = login;
+	}
+
+	
 	
 	
 	

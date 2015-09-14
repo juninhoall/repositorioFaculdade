@@ -6,13 +6,13 @@
 <h:body>
 	<h:form id="formLogin">
 		<h:messages />
-		<h:panelGrid columns="3">	
+		<h:panelGrid columns="2">	
 	    	
 			Login: <h:inputText value="#{loginBean.login.login}" id="login"/>
 			Senha: <h:inputText value="#{loginBean.login.password}" id="password"/>
 			
 
-			<h:commandButton value="Validar" action="#{loginBean.validaLogin()}" />
+			<h:commandButton value="Entrar" action="#{loginBean.validaLogin}" />
 			
 		</h:panelGrid>
 
